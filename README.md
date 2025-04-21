@@ -45,7 +45,7 @@ Se você é do time DevOps raiz:
 docker build -t devopsquest .
 
 # Run container
-docker run -p 3000:3000 devopsquest
+docker run -d -p 3000:3000 devopsquest
 ```
 
 ---

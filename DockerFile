@@ -1,20 +1,19 @@
-# Essa linha define a imagem base
-FROM node:18-alpine
+FROM node:20-alpine
 
-# Define o diretório de trabalho
+# Diretório de trabalho
 WORKDIR /app
 
-# Copia os arquivos de dependência
+# Copia apenas arquivos necessários para instalar dependências
 COPY package*.json ./
 
 # Instala as dependências
-RUN npm install
+RUN npm install --production
 
-# Copia o restante do código
+# Copia o restante dos arquivos
 COPY . .
 
-# Expondo a porta da aplicação
+# Expõe a porta da aplicação
 EXPOSE 3000
 
-# Comando para iniciar a aplicação
-CMD ["npm", "start"]
+# Comando padrão
+CMD ["node", "index.js"]

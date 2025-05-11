@@ -30,7 +30,7 @@ app.get('/status', (req, res) => {
 
 
 if (require.main === module) {
-  app.listen(3000, () => {
+  app.listen(8000, () => {
     console.log('Servidor rodando na porta 3000');
   });
 }

@@ -1,19 +1,20 @@
+# Imagem base leve do Node.js
 FROM node:20-alpine
 
-# Diretório de trabalho
+# Diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia apenas arquivos necessários para instalar dependências
+# Copia os arquivos de dependência primeiro
 COPY package*.json ./
 
-# Instala as dependências
+# Instala apenas as dependências de produção
 RUN npm install --production
 
-# Copia o restante dos arquivos
+# Copia o restante dos arquivos da aplicação
 COPY . .
 
-# Expõe a porta da aplicação
-EXPOSE 8000
+# Expõe a porta padrão usada pelo Cloud Run
+EXPOSE 8080
 
-# Comando padrão
+# Comando para iniciar a aplicação
 CMD ["node", "index.js"]

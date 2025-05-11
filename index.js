@@ -2,11 +2,12 @@ const express = require('express');
 const db = require('./db'); // Importa a conexão com o SQLite
 const app = express();
 
+// Rota simples
 app.get('/', (req, res) => {
   res.send('Olá, mundo!');
 });
 
-// Atualiza a rota /status para registrar no banco
+// Rota de status que registra no banco
 app.get('/status', (req, res) => {
   const timestamp = new Date().toISOString();
 
@@ -28,12 +29,12 @@ app.get('/status', (req, res) => {
   );
 });
 
-
+// Inicializa o servidor se este arquivo for executado diretamente
 if (require.main === module) {
-  app.listen(8000, () => {
-    console.log('Servidor rodando na porta 3000');
+  const PORT = process.env.PORT || 8080;
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
   });
 }
 
 module.exports = app;
-

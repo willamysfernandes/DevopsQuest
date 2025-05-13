@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    environment: teste
+  name: devopsquest
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopsquest
+  template:
+    metadata:
+      labels:
+        app: devopsquest
+    spec:
+      containers:
+      - name: devopsquest
+        imagePullPolicy: Always
+        image: us-central1-docker.pkg.dev/winter-surf-452116-n1/devopsquest-project/devopsquest-project:devopsquest-b288afb
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "128m"
+          requests:
+            memory: "128Mi"
+            cpu: "64m"
+        ports:
+        - name: liveness-port
+          containerPort: 8080

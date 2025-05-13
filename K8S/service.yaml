@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devopsquest
+  namespace: default
+  labels:
+    app: devopsquest
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: devopsquest
+  type: ClusterIP

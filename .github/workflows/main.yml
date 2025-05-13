@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    uses: willamysfernandes/CI-CD-Templates/.github/workflows/main.yml@main
+    uses: willamysfernandes/CI-CD-Templates/.github/workflows/devopsquest.yml@main
     with:
       repository_name: devopsquest-project
       deployment_name: devopsquest-project

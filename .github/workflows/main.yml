@@ -1,0 +1,25 @@
+name: Deploy to gke [GCP]
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  deploy:
+    uses: willamysfernandes/CI-CD-Templates/.github/workflows/main.yml@main
+    with:
+      repository_name: devopsquest-project
+      deployment_name: devopsquest-project
+      container_name: devopsquest-project
+      namespace: default
+    secrets:
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      GCP_ZONE: ${{ secrets.GCP_ZONE }}
+      GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
+      GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+      GCP_ARTIFACT_REGISTRY: ${{ secrets.GCP_ARTIFACT_REGISTRY }}
+      GCP_ARTIFACT_REPOSITORY: ${{ secrets.GCP_ARTIFACT_REPOSITORY }}
+      PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    permissions:
+      contents: write
+      packages: write

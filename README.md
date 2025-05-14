@@ -13,7 +13,7 @@ O **DevOpsQuest** é um projeto simples, direto ao ponto, perfeito pra quem quer
 - 🚀 Deploy local rapidinho
 - 🧪 Testes com Jest e Supertest (usando uma rota GET)
 
----
+--- 
 
 ## 🛠️ Como rodar esse server maroto
 

@@ -18,7 +18,7 @@ spec:
       containers:
       - name: devopsquest
         imagePullPolicy: Always
-        image: us-central1-docker.pkg.dev/winter-surf-452116-n1/devopsquest-project/devopsquest-project:devopsquest-b288afb
+        image: us-central1-docker.pkg.dev/winter-surf-452116-n1/devopsquest-project/devopsquest-project:devopsquest-project-c852af5
         resources:
           limits:
             memory: "256Mi"
